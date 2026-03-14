@@ -1,0 +1,122 @@
+/* =========================================================
+   1. RESET Y BASE
+   ========================================================= */
+#i360-app-root {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+    --tw-border-opacity: 1;
+    border-color: #e5e7eb;
+    
+    /* FIX: Compensar padding de WP */
+    margin-left: -20px;
+    width: calc(100% + 20px);
+}
+
+#i360-app-root *, 
+#i360-app-root *::before, 
+#i360-app-root *::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e2e8f0;
+}
+
+#i360-app-root input, 
+#i360-app-root select, 
+#i360-app-root textarea { font-family: inherit; font-size: 100%; margin: 0; }
+#i360-app-root button { cursor: pointer; background-color: transparent; }
+#i360-app-root img { display: block; max-width: 100%; height: auto; }
+
+/* =========================================================
+   2. SCROLLBAR PERSONALIZADO
+   ========================================================= */
+.custom-scrollbar::-webkit-scrollbar { width: 5px; height: 5px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* =========================================================
+   3. ANIMACIONES
+   ========================================================= */
+.loading-spin { animation: spin 1s linear infinite; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-in-up { animation: fadeInUp 0.3s ease-out forwards; }
+
+/* =========================================================
+   4. 🛡️ ESCUDO ANTI-TEMA DE WORDPRESS (MODALES Y FORMULARIOS)
+   ========================================================= */
+
+/* A. Importar fuente Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* B. Reset de Box Sizing para los Modales (Están fuera del root) */
+#createModal *, #createModal *::before, #createModal *::after,
+#editModal *, #editModal *::before, #editModal *::after {
+    box-sizing: border-box !important;
+}
+
+/* C. Forzar visibilidad y color de los Labels */
+#i360-app-root label,
+#createModal label,
+#createModal .text-slate-500,
+#editModal label,
+#editModal .text-slate-500 {
+    color: #334155 !important; /* Gris oscuro fuerte */
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    text-shadow: none !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 6px !important;
+    background: transparent !important;
+    padding: 0 !important;
+    text-transform: none !important;
+}
+
+/* D. Forzar inputs limpios (Fondo blanco, texto negro) */
+#i360-app-root input:not([type="checkbox"]), 
+#i360-app-root select,
+#createModal input:not([type="checkbox"]),
+#createModal select,
+#editModal input:not([type="checkbox"]),
+#editModal select {
+    color: #0f172a !important; /* Negro azulado */
+    background-color: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+    min-height: 40px !important;
+    box-shadow: none !important;
+    -webkit-text-fill-color: #0f172a !important; /* Fix Safari/Chrome autofill */
+    font-family: 'Inter', sans-serif !important;
+    font-size: 14px !important;
+    line-height: normal !important;
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+/* E. Fix para el Focus de los inputs */
+#i360-app-root input:focus, 
+#createModal input:focus {
+    border-color: #6366f1 !important; /* Indigo 500 */
+    outline: 2px solid #e0e7ff !important; /* Indigo 100 */
+    background-color: #ffffff !important;
+}
+
+/* F. Asegurar títulos visibles */
+#i360-app-root h2, 
+#i360-app-root h3,
+#createModal h3,
+#editModal h3 {
+    color: #0f172a !important;
+    font-family: 'Inter', sans-serif !important;
+}
